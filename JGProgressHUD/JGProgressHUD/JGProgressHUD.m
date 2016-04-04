@@ -332,6 +332,12 @@ static CGRect keyboardFrame = (CGRect){{0.0f, 0.0f}, {0.0f, 0.0f}};
     };
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+{
+    self.frame = [self fullFrameInView:self.targetView];
+    [self updateHUDAnimated:NO animateIndicatorViewFrame:YES];
+}
+
 #pragma mark - Showing
 
 - (void)cleanUpAfterPresentation {
